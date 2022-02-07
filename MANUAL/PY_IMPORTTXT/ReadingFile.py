@@ -5,14 +5,11 @@ from dataclasses import replace
 from email import header
 import glob
 import os
-from datetime import date, time, datetime
+import datetime
 import pytz
 from config.sql_server_conn import sql_conn
 
 pathFile = 'D://DOWNLOAD-IMPORT/MANUAL/PY_IMPORTTXT/LOGINSERTTXT/'
-tz = pytz.timezone('UTC')
-today= datetime.now(tz).strftime("%Y%m%d")
-# print(today)
 header_name = "log file ตรวจสอบการนำเข้าข้อมูลจากไฟล์ Text ==>"
 dont = ".............................................................................................................................................................................................................................................................................................................\n"
 summarize = "สรุปการนำเข้า\n"
@@ -25,8 +22,8 @@ i=0
 
 def get_value_textfileEQUIPMENT(file):
     # tz = pytz.timezone('UTC')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_EQUIPMENT'+str(newdate)+'.txt')
     countEq = 0
     summarCountEq = ""
@@ -117,8 +114,8 @@ def get_value_textfileEQUIPMENT(file):
 
 def get_value_textfileNOTIFICATION(file):
     # tz = pytz.timezone('US/Pacific')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_NOTIFICATION'+str(newdate)+'.txt')
     countNoTi = 0
     summarCount = ""
@@ -180,8 +177,8 @@ def get_value_textfileNOTIFICATION(file):
 
 def get_value_textfileWORK_ORDER(file):
     # tz = pytz.timezone('US/Pacific')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_WORK_ORDER'+str(newdate)+'.txt')
     countWo = 0
     summarCountWo = ""
@@ -244,11 +241,11 @@ def get_value_textfileWORK_ORDER(file):
     filetxt.close()
 
 
-# list_of_files = glob.glob('D:\py_importTxt\DownloadTextFile\*') # * means all if need specific format then *.csv
-# latest_file = max(list_of_files, key=os.path.getctime)
-# # print(latest_file)
-# folder = latest_file
-folder = 'D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\DOWNLOADTEXTFILE\download202202031027'
+list_of_files = glob.glob('D:\py_importTxt\DownloadTextFile\*') # * means all if need specific format then *.csv
+latest_file = max(list_of_files, key=os.path.getctime)
+# print(latest_file)
+folder = latest_file
+# folder = 'D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\DOWNLOADTEXTFILE\download202202031027'
 txtName = os.listdir(folder)
 # print(txtName)
 for file in txtName:

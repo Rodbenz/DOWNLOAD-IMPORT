@@ -5,14 +5,10 @@ from dataclasses import replace
 from email import header
 import glob
 import os
-from datetime import date, time, datetime
-import pytz
+import datetime
 from config.sql_server_conn import sql_conn
 
 pathFile = 'D://DOWNLOAD-IMPORT/TASK-SCHEDULER/PY_IMPORTTXT\LOGINSERTTXT/'
-tz = pytz.timezone('UTC')
-today= datetime.now(tz).strftime("%Y%m%d")
-# print(today)
 header_name = "log file ตรวจสอบการนำเข้าข้อมูลจากไฟล์ Text ==>"
 dont = ".............................................................................................................................................................................................................................................................................................................\n"
 summarize = "สรุปการนำเข้า\n"
@@ -25,8 +21,8 @@ i=0
 
 def get_value_textfileEQUIPMENT(file):
     # tz = pytz.timezone('UTC')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_EQUIPMENT'+str(newdate)+'.txt')
     countEq = 0
     summarCountEq = ""
@@ -94,7 +90,7 @@ def get_value_textfileEQUIPMENT(file):
                 OTH1=array_text[51]
                 OTH2=array_text[52]
                 OTH3=array_text[53]
-                sqlConn = sql_conn("EXEC EXAT_GIS_TEST.dbo.[INSERT_BR_FROM_SAP_EQUIPMENT]"+ "'"+EQUIPMENT_NO+"','"+FUNCTIONAL_LOC+"','"+ASSET_NO+"','"+ASSET_SUBNO+"','"+EQUIPMENT_DESC+"','"+FUNCTIONAL_DESC+"','"+ASSET_DESC+"','"+VALID_FROM+"','"+VALID_TO+"','"+CLASS_TYPE+"','"+CLASS_DETAIL+"','"+COST_CENTER+"','"+COST_CENTER_DESC+"','"+MAIN_WORFKCTR+"','"+MAIN_WORFKCTR_DESC+"','"+CREATE_DTM+"','"+CREATE_USER+"','"+UPDATE_DTM+"','"+UPDATE_USER+"','"+EQTYP+"','"+EQART+"','"+WAERS+"','"+INGRP+"','"+SERGE+"','"+MSGRP+"','"+RBNR+"','"+ANSDT+"','"+ANSWT+"','"+HERST+"','"+TYPBZ+"','"+MAPAR+"','"+MGANR_L+"','"+GARTX_L+"','"+GWLDT_L+"','"+INVNR+"','"+GROES+"','"+BAUJJ+"','"+BAUMM+"','"+HERLD+"','"+STORT+"','"+BEBER+"','"+STATUS+"','"+DATE+"','"+CHASSNO+"','"+ENGINNO+"','"+CONTROL+"','"+VENDOR_NAME+"','"+TELEPHONE+"','"+PURCH_MAT+"','"+VERSION+"','"+INVENNO+"','"+OTH1+"','"+OTH2+"','"+OTH3.replace("\n","")+"'")
+                sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_EQUIPMENT]"+ "'"+EQUIPMENT_NO+"','"+FUNCTIONAL_LOC+"','"+ASSET_NO+"','"+ASSET_SUBNO+"','"+EQUIPMENT_DESC+"','"+FUNCTIONAL_DESC+"','"+ASSET_DESC+"','"+VALID_FROM+"','"+VALID_TO+"','"+CLASS_TYPE+"','"+CLASS_DETAIL+"','"+COST_CENTER+"','"+COST_CENTER_DESC+"','"+MAIN_WORFKCTR+"','"+MAIN_WORFKCTR_DESC+"','"+CREATE_DTM+"','"+CREATE_USER+"','"+UPDATE_DTM+"','"+UPDATE_USER+"','"+EQTYP+"','"+EQART+"','"+WAERS+"','"+INGRP+"','"+SERGE+"','"+MSGRP+"','"+RBNR+"','"+ANSDT+"','"+ANSWT+"','"+HERST+"','"+TYPBZ+"','"+MAPAR+"','"+MGANR_L+"','"+GARTX_L+"','"+GWLDT_L+"','"+INVNR+"','"+GROES+"','"+BAUJJ+"','"+BAUMM+"','"+HERLD+"','"+STORT+"','"+BEBER+"','"+STATUS+"','"+DATE+"','"+CHASSNO+"','"+ENGINNO+"','"+CONTROL+"','"+VENDOR_NAME+"','"+TELEPHONE+"','"+PURCH_MAT+"','"+VERSION+"','"+INVENNO+"','"+OTH1+"','"+OTH2+"','"+OTH3.replace("\n","")+"'")
                 data = sqlConn.Exec_()
                 if data == 1:
                     countEq = countEq + data
@@ -117,9 +113,8 @@ def get_value_textfileEQUIPMENT(file):
 
 
 def get_value_textfileNOTIFICATION(file):
-    # tz = pytz.timezone('US/Pacific')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_NOTIFICATION'+str(newdate)+'.txt')
     countNoTi = 0
     summarCount = ""
@@ -159,7 +154,7 @@ def get_value_textfileNOTIFICATION(file):
             AENAM=array_text[23]
             AEDAT=array_text[24]
 
-            sqlConn = sql_conn("EXEC EXAT_GIS_TEST.dbo.[INSERT_BR_FROM_SAP_NOTI]"+ "'"+QMNUM+"','"+QMART+"','"+QMTXT+"','"+ARTPR+"','"+PRIOK+"','"+PRIORITY+"','"+MZEIT+"','"+QMDAT+"','"+QMNAM+"','"+AUFNR+"','"+KTEXT+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+STATUS+"','"+NOTI_LONG_TEXT+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'")
+            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_NOTI]"+ "'"+QMNUM+"','"+QMART+"','"+QMTXT+"','"+ARTPR+"','"+PRIOK+"','"+PRIORITY+"','"+MZEIT+"','"+QMDAT+"','"+QMNAM+"','"+AUFNR+"','"+KTEXT+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+STATUS+"','"+NOTI_LONG_TEXT+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'")
             data = sqlConn.Exec_()
             if data == 1:
                 countNoTi = countNoTi + data
@@ -181,9 +176,8 @@ def get_value_textfileNOTIFICATION(file):
 
 
 def get_value_textfileWORK_ORDER(file):
-    # tz = pytz.timezone('US/Pacific')
-    newdate = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-    date = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     filename = str.format('logFile_WORK_ORDER'+str(newdate)+'.txt')
     countWo = 0
     summarCountWo = ""
@@ -228,7 +222,7 @@ def get_value_textfileWORK_ORDER(file):
             AENAM=array_text[27]
             AEDAT=array_text[28]
             # print("'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT+"'")
-            sqlConn = sql_conn("EXEC EXAT_GIS_TEST.dbo.[INSERT_BR_FROM_SAP_WORK_ORDER]"+ "'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'" )
+            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_WORK_ORDER]"+ "'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'" )
             data = sqlConn.Exec_()
             if data == 1:
                 countWo = countWo + data

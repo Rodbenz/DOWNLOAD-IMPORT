@@ -40,4 +40,4 @@ def setInterval(func,time):
     while not e.wait(time):
         func()
 
-setInterval(_beginWork,5)
+setInterval(_beginWork,3)

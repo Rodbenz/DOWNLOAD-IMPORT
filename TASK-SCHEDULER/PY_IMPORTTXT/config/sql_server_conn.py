@@ -1,20 +1,24 @@
 import os
 import pyodbc
-# import pandas as pd
-# from dotenv import load_dotenv
+import pandas as pd
+from dotenv import load_dotenv
 
 
 class sql_conn(object):
     def __init__(self, query):
-        # load_dotenv()
-        server = '192.168.100.230' 
-        database = 'EXAT' 
-        username = 'sa' 
-        password = 'td@1234' 
+        load_dotenv()
+        # server = '192.168.100.230' 
+        # database = 'EXAT' 
+        # username = 'sa' 
+        # password = 'td@1234' 
         # server = '192.168.41.' + server_id
         # database = 'land'
         # username = 'sa'
         # password = 'td@1234'
+        server = os.getenv('SERVER')
+        database = os.getenv('DATABASE')
+        username = os.getenv('USER')
+        password = os.getenv('PASS')
         self.conn = pyodbc.connect(
             'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         self.cursor = self.conn.cursor()
