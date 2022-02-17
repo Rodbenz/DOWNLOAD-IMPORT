@@ -241,11 +241,11 @@ def get_value_textfileWORK_ORDER(file):
     filetxt.close()
 
 
-# list_of_files = glob.glob('D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\DOWNLOADTEXTFILE\*') # * means all if need specific format then *.csv
-# latest_file = max(list_of_files, key=os.path.getctime)
+list_of_files = glob.glob('D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\DOWNLOADTEXTFILE\*') # * means all if need specific format then *.csv
+latest_file = max(list_of_files, key=os.path.getctime)
 # # print(latest_file)
-# folder = latest_file
-folder = 'D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\DOWNLOADTEXTFILE\download202202031027'
+folder = latest_file
+# folder = 'D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\DOWNLOADTEXTFILE\download202202031027'
 txtName = os.listdir(folder)
 # print(txtName)
 for file in txtName:

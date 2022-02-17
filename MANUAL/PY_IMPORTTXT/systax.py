@@ -27,7 +27,7 @@ def _beginWork() :
         }
         response = requests.request("POST", url, headers=headers, data=payload)
         # print(response.text)
-        os.system("D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\startup.bat")
+        os.system("D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\START-UP.bat")
     if(q == 'C'):
         print('รอดำเนินการ')
     elif(q == 'D'):

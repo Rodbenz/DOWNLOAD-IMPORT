@@ -1,21 +1,21 @@
 @echo off
-echo open 192.168.100.24>> D:\py_importTxt\ftpuploadscript.txt
+echo open 192.168.100.24>> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo gisuser>> D:\py_importTxt\ftpuploadscript.txt
+echo gisuser>> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo gis!1234>> D:\py_importTxt\ftpuploadscript.txt
+echo gis!1234>> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo ls>> D:\py_importTxt\ftpuploadscript.txt
+echo ls>> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo cd /usr/sap/trans/Interface/GIS >> D:\py_importTxt\ftpuploadscript.txt
+echo cd /usr/sap/trans/Interface/GIS >> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo lcd D:\py_importTxt\DownloadTextFile\download202202015353 >> D:\py_importTxt\ftpuploadscript.txt
+echo lcd D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\DOWNLOADTEXTFILE\download202202031027 >> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo mput *.txt >> D:\py_importTxt\ftpuploadscript.txt
+echo mput *.txt >> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo bye >> D:\py_importTxt\ftpuploadscript.txt
+echo bye >> D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-ftp -i -s:D:\py_importTxt\ftpuploadscript.txt
+ftp -i -s:D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-del D:\py_importTxt\ftpuploadscript.txt
+del D:\DOWNLOAD-IMPORT\TASK-SCHEDULER\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 pause
