@@ -112,7 +112,7 @@ def get_value_textfileEQUIPMENT(file):
                 else:
                     print(data)
                     errorDatabass = data
-                    f.write(errorDatabass)
+                    f.write(str(errorDatabass))
             else:
                 i = i+1
                 countNo = i
@@ -179,7 +179,7 @@ def get_value_textfileNOTIFICATION(file):
             else:
                 print(data)
                 errorDatabass = data
-                filetxt.write(errorDatabass)
+                filetxt.write(str(errorDatabass))
         else:
             i = i+1
             countNo = i
@@ -251,7 +251,7 @@ def get_value_textfileWORK_ORDER(file):
             else:
                 print(data)
                 errorDatabass = data
-                filetxt.write(errorDatabass)
+                filetxt.write(str(errorDatabass))
         else:
             i=i+1
             countNo = i
@@ -279,11 +279,11 @@ for file in txtName:
         # print(txtstr)
         if "EQUIPMENT" in name[0]:
             print('EQUIPMENT'+txtstr)
-            get_value_textfileEQUIPMENT(txtstr)
+            # get_value_textfileEQUIPMENT(txtstr)
             print("\n")
         elif "NOTIFICATION" in name[0]:
             print('NOTIFICATION'+txtstr)
-            get_value_textfileNOTIFICATION(txtstr)
+            # get_value_textfileNOTIFICATION(txtstr)
             print("\n")
         elif "WORK_ORDER" in name[0]:
             print('WORK_ORDER'+txtstr)

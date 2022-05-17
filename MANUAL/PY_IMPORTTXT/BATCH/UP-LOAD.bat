@@ -9,7 +9,7 @@ echo ls>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
 echo cd /usr/sap/trans/Interface/GIS >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
-echo lcd D:\DOWNLOAD-IMPORT\BACKUP\download20220217111600 >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
+echo lcd D:\DOWNLOAD-IMPORT\BACKUP\UPLOAD >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
 echo mput *.txt >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpuploadscript.txt
 
