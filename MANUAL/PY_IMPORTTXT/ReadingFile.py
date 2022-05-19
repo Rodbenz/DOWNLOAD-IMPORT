@@ -261,6 +261,50 @@ def get_value_textfileWORK_ORDER(file):
     filetxt.close()
 
 
+
+def get_value_textfileFUNCTIONAL_LOCATION(file):
+    i=0
+    countNo = ""
+    newdate = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    filename = str.format(str(newdate)+'_LOG_FUNCTIONAL_LOCATION.txt')
+    countWo = 0
+    summarCountWo = ""
+    f = open(file, 'r', encoding="utf8")
+    s=f.readlines()
+    if not os.path.isdir(pathFile) :
+        os.makedirs(pathFile)
+    filetxt = open(pathFile+filename, "a+" , encoding="utf8", errors='ignore')
+    filetxt.write(header_name + file + "\n" + dont)
+    for col in s:
+        array_text = col.split("|")
+        number_pite = len(array_text)
+        # print(number_pite)
+        if number_pite == 2:
+            TPLNR=array_text[0]
+            PLTXT=array_text[1]
+            
+            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_UPDATE_BR_ZRFC_FUNCTIONAL]"+ "'"+TPLNR+"','"+PLTXT.replace("\n","")+"'" )
+            data = sqlConn.Exec_()
+            if data == 1:
+                countWo = countWo + data
+                print(countWo)
+                summarCountWo = countWo
+                filetxt.write("successfully "+str(date)+"==>"+col)   
+            else:
+                print(data)
+                errorDatabass = data
+                filetxt.write(str(errorDatabass))
+        else:
+            i=i+1
+            countNo = i
+            filetxt.write("Error "+str(date)+"==>"+col)
+    filetxt.write(dont + summarize + yesimport + str(summarCountWo) + "\n")
+    filetxt.write(cannot + str(countNo))
+    filetxt.close()
+
+
+
 # list_of_files = glob.glob('D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\DOWNLOADTEXTFILE\*') # * means all if need specific format then *.csv
 # latest_file = max(list_of_files, key=os.path.getctime)
 # # print(latest_file)
@@ -288,6 +332,10 @@ for file in txtName:
         elif "WORK_ORDER" in name[0]:
             print('WORK_ORDER'+txtstr)
             get_value_textfileWORK_ORDER(txtstr)
+            print("\n")
+        elif "FUNCTIONAL_LOCATION" in name[0]:
+            print('FUNCTIONAL_LOCATION'+txtstr)
+            get_value_textfileFUNCTIONAL_LOCATION(txtstr)
             print("\n")
         else:
             print("NO Table")
