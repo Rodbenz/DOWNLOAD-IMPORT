@@ -102,7 +102,7 @@ def get_value_textfileEQUIPMENT(file):
                 OTH1=array_text[51]
                 OTH2=array_text[52]
                 OTH3=array_text[53]
-                sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_EQUIPMENT]"+ "'"+EQUIPMENT_NO+"','"+FUNCTIONAL_LOC+"','"+ASSET_NO+"','"+ASSET_SUBNO+"','"+EQUIPMENT_DESC+"','"+FUNCTIONAL_DESC+"','"+ASSET_DESC+"','"+VALID_FROM+"','"+VALID_TO+"','"+CLASS_TYPE+"','"+CLASS_DETAIL+"','"+COST_CENTER+"','"+COST_CENTER_DESC+"','"+MAIN_WORFKCTR+"','"+MAIN_WORFKCTR_DESC+"','"+CREATE_DTM+"','"+CREATE_USER+"','"+UPDATE_DTM+"','"+UPDATE_USER+"','"+EQTYP+"','"+EQART+"','"+WAERS+"','"+INGRP+"','"+SERGE+"','"+MSGRP+"','"+RBNR+"','"+ANSDT+"','"+ANSWT+"','"+HERST+"','"+TYPBZ+"','"+MAPAR+"','"+MGANR_L+"','"+GARTX_L+"','"+GWLDT_L+"','"+INVNR+"','"+GROES+"','"+BAUJJ+"','"+BAUMM+"','"+HERLD+"','"+STORT+"','"+BEBER+"','"+STATUS+"','"+DATE+"','"+CHASSNO+"','"+ENGINNO+"','"+CONTROL+"','"+VENDOR_NAME+"','"+TELEPHONE+"','"+PURCH_MAT+"','"+VERSION+"','"+INVENNO+"','"+OTH1+"','"+OTH2+"','"+OTH3.replace("\n","")+"'")
+                sqlConn = sql_conn("EXEC EXAT_MTN.dbo.[INSERT_BR_FROM_SAP_EQUIPMENT]"+ "'"+EQUIPMENT_NO+"','"+FUNCTIONAL_LOC+"','"+ASSET_NO+"','"+ASSET_SUBNO+"','"+EQUIPMENT_DESC+"','"+FUNCTIONAL_DESC+"','"+ASSET_DESC+"','"+VALID_FROM+"','"+VALID_TO+"','"+CLASS_TYPE+"','"+CLASS_DETAIL+"','"+COST_CENTER+"','"+COST_CENTER_DESC+"','"+MAIN_WORFKCTR+"','"+MAIN_WORFKCTR_DESC+"','"+CREATE_DTM+"','"+CREATE_USER+"','"+UPDATE_DTM+"','"+UPDATE_USER+"','"+EQTYP+"','"+EQART+"','"+WAERS+"','"+INGRP+"','"+SERGE+"','"+MSGRP+"','"+RBNR+"','"+ANSDT+"','"+ANSWT+"','"+HERST+"','"+TYPBZ+"','"+MAPAR+"','"+MGANR_L+"','"+GARTX_L+"','"+GWLDT_L+"','"+INVNR+"','"+GROES+"','"+BAUJJ+"','"+BAUMM+"','"+HERLD+"','"+STORT+"','"+BEBER+"','"+STATUS+"','"+DATE+"','"+CHASSNO+"','"+ENGINNO+"','"+CONTROL+"','"+VENDOR_NAME+"','"+TELEPHONE+"','"+PURCH_MAT+"','"+VERSION+"','"+INVENNO+"','"+OTH1+"','"+OTH2+"','"+OTH3.replace("\n","")+"'")
                 data = sqlConn.Exec_()
                 if data == 1:
                     countEq = countEq + data
@@ -169,7 +169,7 @@ def get_value_textfileNOTIFICATION(file):
             AENAM=array_text[23]
             AEDAT=array_text[24]
 
-            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_NOTI]"+ "'"+QMNUM+"','"+QMART+"','"+QMTXT+"','"+ARTPR+"','"+PRIOK+"','"+PRIORITY+"','"+MZEIT+"','"+QMDAT+"','"+QMNAM+"','"+AUFNR+"','"+KTEXT+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+STATUS+"','"+NOTI_LONG_TEXT+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'")
+            sqlConn = sql_conn("EXEC EXAT_MTN.dbo.[INSERT_BR_FROM_SAP_NOTI]"+ "'"+QMNUM+"','"+QMART+"','"+QMTXT+"','"+ARTPR+"','"+PRIOK+"','"+PRIORITY+"','"+MZEIT+"','"+QMDAT+"','"+QMNAM+"','"+AUFNR+"','"+KTEXT+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+STATUS+"','"+NOTI_LONG_TEXT+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'")
             data = sqlConn.Exec_()
             if data == 1:
                 countNoTi = countNoTi + data
@@ -241,7 +241,7 @@ def get_value_textfileWORK_ORDER(file):
             AENAM=array_text[27]
             AEDAT=array_text[28]
             # print("'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT+"'")
-            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_BR_FROM_SAP_WORK_ORDER]"+ "'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'" )
+            sqlConn = sql_conn("EXEC EXAT_MTN.dbo.[INSERT_BR_FROM_SAP_WORK_ORDER]"+ "'"+AUART+"','"+AUFNR+"','"+TPLNR+"','"+PLTXT+"','"+EQUNR+"','"+EQKTX+"','"+KTEXT+"','"+INGRP+"','"+INNAM+"','"+PARNR+"','"+ABNAME+"','"+Q_ERDAT+"','"+STATUS+"','"+STATUS_DATE+"','"+GSTRP+"','"+GLTRP+"','"+GSTRI+"','"+GETRI+"','"+TOTAL_COST+"','"+LABOR_COST+"','"+MAT_COST+"','"+OTH_COST+"','"+PO_COST+"','"+EXT_SERVICES+"','"+WAERS+"','"+ERNAM+"','"+ERDAT+"','"+AENAM+"','"+AEDAT.replace("\n","")+"'" )
             data = sqlConn.Exec_()
             if data == 1:
                 countWo = countWo + data
@@ -284,7 +284,7 @@ def get_value_textfileFUNCTIONAL_LOCATION(file):
             TPLNR=array_text[0]
             PLTXT=array_text[1]
             
-            sqlConn = sql_conn("EXEC EXAT_GIS.dbo.[INSERT_UPDATE_BR_ZRFC_FUNCTIONAL]"+ "'"+TPLNR+"','"+PLTXT.replace("\n","")+"'" )
+            sqlConn = sql_conn("EXEC EXAT_MTN.dbo.[INSERT_UPDATE_BR_ZRFC_FUNCTIONAL]"+ "'"+TPLNR+"','"+PLTXT.replace("\n","")+"'" )
             data = sqlConn.Exec_()
             if data == 1:
                 countWo = countWo + data
