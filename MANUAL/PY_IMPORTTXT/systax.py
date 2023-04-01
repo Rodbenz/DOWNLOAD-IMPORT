@@ -6,7 +6,7 @@ import json
 
 def getQueName() : 
     q = False
-    response = requests.get("http://localhost:8090/api/common/getAllStatusId").json()
+    response = requests.get("http://localhost:8093/MAS/getAllStatusId").json()
     data = response
     for i in data :
         # print(i['STATUS'])
@@ -18,7 +18,7 @@ def _beginWork() :
     if q == 'N' :
         # UPDATE SATATUS D
 
-        url = "http://localhost:8090/api/common/updateSatatus"
+        url = "http://localhost:8093/MAS/updateSatatus"
         payload = json.dumps({
         "status": "D"
         })
