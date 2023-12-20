@@ -16,7 +16,7 @@ mkdir D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\DOWNLOADTEXTFILE\%mainFolder%\DOWNL
 
 echo START WORK %CUR_YYYY%-%CUR_MM%-%CUR_DD% %CUR_HH%:%CUR_NN%:%CUR_SS% >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpgetscript.txt
 
-echo open 192.168.100.22>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpgetscript.txt
+echo open 192.168.100.24>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpgetscript.txt
 
 echo gisuser>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpgetscript.txt
 
@@ -43,9 +43,9 @@ del D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpgetscript.txt
 @REM -------------------------------------------------------------DELETE--------------------------------------------------------------
 echo START WORK %CUR_YYYY%-%CUR_MM%-%CUR_DD% %CUR_HH%:%CUR_NN%:%CUR_SS% >> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
 
-@REM echo open 192.168.100.22>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
+@REM echo open 192.168.100.25>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
 
-echo open 192.168.100.22>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
+echo open 192.168.100.24>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
 
 echo gisuser>> D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
 
@@ -72,3 +72,4 @@ del D:\DOWNLOAD-IMPORT\MANUAL\PY_IMPORTTXT\BATCH\ftpdelscript.txt
 
 @REM pause
 exit
+
